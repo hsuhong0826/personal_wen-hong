@@ -1,0 +1,26 @@
+git clone <Azure Repo URL>  # clone 專案
+
+git fetch --all # 抓取所有遠端分支
+git branch -r # 確認分支
+
+git switch <對應分支名稱> # 切換到對應分支
+git switch -c develop origin/develop # 若第一次切換失敗，再執行這行
+
+git switch -c timmy-dev # 從分支建立你的功能分支
+
+=============================================================
+
+git branch # 查看目前分支
+git status # 檢查檔案狀態
+git add . # 加入所有變更檔案
+git commit -m "feat:XXX" # 提交訊息
+
+git push -u origin timmy-dev # 第一次推送(建立遠端分支)
+git push # 推送至遠端
+
+=============================================================
+
+git checkout dev # 切回 dev 分支
+git pull origin dev # 更新 dev 分支
+git checkout timmy-dev # 切回 timmy-dev 分支
+git rebase dev # 更新基底
