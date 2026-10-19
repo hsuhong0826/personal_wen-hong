@@ -1,0 +1,48 @@
+欄位	        定義／計算公式
+comparison_date	比對日期，來源資料的日期；預設為執行日的前一天。
+baseline_vendor	基準廠商代碼，即該比對方向的來源廠商。
+section_id	路段代碼，比對條件之一。
+ps_id	        停車格，比對條件之一。
+status	        地磁狀態，僅處理 1、2；來源與目標資料必須相同。
+baseline_time	基準廠商的事件時間，來源欄位sta_dt 轉換為 TIMESTAMP。
+target_vendor	被比對的目標廠商代碼。
+target_ps_id    被比對的目標廠商車格。
+matched_time	目標廠商中符合條件且時間差最小的事件時間。找不到配對時為 NULL。
+time_difference_seconds	基準與目標事件的時間差：DATEDIFF('second', baseline_time, target_time)；正值表示目標事件晚於基準事件，負值表示目標事件早於基準事件；找不到配對時為 NULL。
+difference_rate	時間差百分比：ROUND((time_difference_seconds / 86400.0) * 100, 8)，其中 86400 為一天的秒數；正負方向與 time_difference_seconds 相同；找不到配對時為 NULL。
+created_at	寫入結果的資料庫時間：CURRENT_TIMESTAMP。
+
+
+#金磚(IISI01_T01)、歐尼(C01_T01)、歐金(C01_01)
+
+SELECT DISTINCT
+    baseline_vendor,
+    section_id,
+    ps_id AS baseline_ps_id,
+    target_vendor,
+    target_ps_id,
+    time_difference_seconds,
+    difference_rate
+FROM cid_three_vendor_comparison_results
+WHERE baseline_vendor IN ('C01', 'IISI01')
+  AND TRIM(section_id) = '3148038'
+ORDER BY
+    baseline_vendor,
+    ps_id,
+    target_vendor,
+    time_difference_seconds;
+
+
+#金磚(IISI01_T01)、國雲(C03_01)
+
+
+
+
+
+
+
+正確條件是：
+section_id 相同
+ps_id 相同（程式會忽略開頭的 T）
+status 相同
+在符合上述條件的資料中，選擇與 baseline_time 時間差最小的資料

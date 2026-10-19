@@ -1,0 +1,60 @@
+('C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+ 'aniysis\\分析_v2\\分析v2\\09010930IISI01\\cid_vendor_compare\\build\\cid_vendor_compare\\cid_vendor_compare.pkg',
+ {'BINARY': True,
+  'DATA': True,
+  'EXECUTABLE': True,
+  'EXTENSION': True,
+  'PYMODULE': True,
+  'PYSOURCE': True,
+  'PYZ': False,
+  'SPLASH': True,
+  'SYMLINK': False},
+ [('pyi-contents-directory _internal', '', 'OPTION'),
+  ('PYZ-00.pyz',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\cid_vendor_compare\\build\\cid_vendor_compare\\PYZ-00.pyz',
+   'PYZ'),
+  ('struct',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\cid_vendor_compare\\build\\cid_vendor_compare\\localpycs\\struct.pyc',
+   'PYMODULE'),
+  ('pyimod01_archive',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\cid_vendor_compare\\build\\cid_vendor_compare\\localpycs\\pyimod01_archive.pyc',
+   'PYMODULE'),
+  ('pyimod02_importers',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\cid_vendor_compare\\build\\cid_vendor_compare\\localpycs\\pyimod02_importers.pyc',
+   'PYMODULE'),
+  ('pyimod03_ctypes',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\cid_vendor_compare\\build\\cid_vendor_compare\\localpycs\\pyimod03_ctypes.pyc',
+   'PYMODULE'),
+  ('pyimod04_pywin32',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\cid_vendor_compare\\build\\cid_vendor_compare\\localpycs\\pyimod04_pywin32.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\.venv\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth_inspect',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgutil',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pkgutil.py',
+   'PYSOURCE'),
+  ('main',
+   'C:\\Users\\2607026\\Desktop\\停管處專案資料\\CID地磁管理監控系統\\status '
+   'aniysis\\分析_v2\\分析v2\\09010930IISI01\\cid_vendor_compare\\main.py',
+   'PYSOURCE')],
+ 'python313.dll',
+ True,
+ False,
+ False,
+ [],
+ None,
+ None,
+ None)
