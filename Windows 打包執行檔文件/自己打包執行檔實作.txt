@@ -1,0 +1,39 @@
+虛擬環境要先有套件:python -m pip install pyinstaller
+=================================================================================================
+打包指令:pyinstaller --clean --noconfirm --onedir --name geomagnetic_analysis main_analysis_test.py
+打包完測試:cd ".\dist\geomagnetic_analysis"
+執行:.\geomagnetic_analysis.exe
+================================================================================================
+資料庫寫入目前邏輯是：
+
+中繼表先執行 DELETE ... WHERE analysis_date = :analysis_date，再批次 INSERT 該日資料。
+最終表也一樣先刪該日資料，再 INSERT 新結果。
+所以重跑同一個 analysis_date 時，效果是覆蓋更新（replace），不是跳過寫入。
+另外最終表有主鍵 (analysis_date, vendorcode, section_id, ps_id)，可防止同鍵重複；中繼表本身沒有唯一鍵，主要靠「先刪除該日期」避免重複。
+若開 DRY_RUN，則兩張表都不會實際寫入。
+
+
+
+
+#計算邏輯
+total_count = 該格位總筆數
+
+suspect_count = 可疑筆數
+
+anomaly_count = 異常筆數
+
+normal_count = 正常筆數
+
+suspect_ratio = (suspect_count / total_count) * 100
+
+anomaly_ratio = (anomaly_count / total_count) * 100
+
+total_ratio = ((suspect_count + anomaly_count) / total_count) * 100
+
+關係式：total_count = suspect_count + anomaly_count + normal_count
+補充：比例都是百分比，並四捨五入到小數第 4 位
+
+
+工作排程器動作設定:
+-NoExit -Command "& 'C:\Users\2607026\Desktop\停管處專案資料\CID地磁管理監控系統\status aniysis\分析_v2\分析v2\09010930IISI01\cid_vendor_compare\dist\cid_vendor_compare\cid_vendor_compare.exe'"
+C:\Users\2607026\Desktop\停管處專案資料\CID地磁管理監控系統\status aniysis\分析_v2\分析v2\08070814 no device_id\database_test\dist\geomagnetic_analysis
