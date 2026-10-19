@@ -1,0 +1,21 @@
+檔案位置完整路徑:
+\\wsl$\Ubuntu\home\user2607026\geomagnetic\database_test\dist\geomagnetic_analysis
+
+本機Linux測試流程指令:
+step1:
+cd ~/geomagnetic/database_test/dist/geomagnetic_analysis
+step2:
+確認內容:ls -la
+應該要有:
+geomagnetic_analysis
+.env
+_internal/
+step3:
+執行:./geomagnetic_analysis
+step4:
+檢查log:ls -l _internal/logs
+查看當日log:cat _internal/logs/analysis_20260904.log
+
+
+
+加入壓縮檔指令:tar -czf geomagnetic_analysis_linux.tar.gz geomagnetic_analysis/
