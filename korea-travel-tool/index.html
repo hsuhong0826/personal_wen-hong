@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="韓國旅行隨手查：台幣韓元換算、金額對照與實用韓語。">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>韓旅隨手查</title>
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="brand-mark" aria-hidden="true">ㅎ</div>
+      <div>
+        <p class="eyebrow">KOREA TRAVEL TOOL</p>
+        <h1>韓旅隨手查</h1>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="intro">
+        <p class="eyebrow">旅途中，隨手就能查</p>
+        <h2>換算、比價、開口說韓語。</h2>
+        <p>常用資訊放在一起，逛街點餐時更從容。</p>
+      </section>
+
+      <nav class="tabs" aria-label="功能選單">
+        <button class="tab is-active" type="button" id="tab-exchange" data-view="exchange" aria-controls="view-exchange" aria-current="page">匯率換算</button>
+        <button class="tab" type="button" id="tab-table" data-view="table" aria-controls="view-table">快速對照</button>
+        <button class="tab" type="button" id="tab-phrases" data-view="phrases" aria-controls="view-phrases">旅行韓語</button>
+      </nav>
+
+      <section class="view" id="view-exchange" aria-labelledby="tab-exchange">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CURRENCY CONVERTER</p>
+            <h2>匯率換算</h2>
+          </div>
+          <span class="section-icon" aria-hidden="true">₩</span>
+        </div>
+
+        <div class="card converter">
+          <label class="field-label" for="amount">輸入金額</label>
+          <div class="amount-field">
+            <span id="from-currency" class="currency-code">TWD</span>
+            <input id="amount" type="number" min="0" step="any" inputmode="decimal" value="1000" autocomplete="off" aria-describedby="amount-hint">
+          </div>
+          <p id="amount-hint" class="field-hint">輸入非負金額，即可即時換算。</p>
+
+          <button class="swap-button" type="button" id="swap-currency" aria-label="切換台幣與韓元換算方向">⇅ <span>切換幣別</span></button>
+
+          <div class="result-box" aria-live="polite">
+            <p id="to-currency-label" class="result-label">換算為韓元 KRW</p>
+            <p id="converted-amount" class="result-amount">—</p>
+          </div>
+        </div>
+
+        <div class="rate-card">
+          <div>
+            <p class="rate-label">參考匯率</p>
+            <p id="rate-summary" class="rate-summary">正在取得匯率…</p>
+            <p id="rate-status" class="rate-status" role="status"></p>
+          </div>
+          <button type="button" class="refresh-button" id="refresh-rate" aria-label="更新匯率">↻ <span>更新</span></button>
+        </div>
+        <p class="note">匯率僅供估算；刷卡與現金兌換價格可能不同。資料來源：<a href="https://frankfurter.dev/" target="_blank" rel="noopener noreferrer">Frankfurter</a>。</p>
+      </section>
+
+      <section class="view" id="view-table" aria-labelledby="tab-table" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PRICE CHEAT SHEET</p>
+            <h2>金額快速對照</h2>
+          </div>
+          <span class="section-icon" aria-hidden="true">≈</span>
+        </div>
+        <p class="section-description">看到韓元標價時，快速估算約合多少台幣。點選金額可帶入換算器。</p>
+        <div class="card table-card">
+          <div class="table-header"><span>韓元 KRW</span><span>約合台幣 TWD</span></div>
+          <div id="quick-table" class="table-body"></div>
+        </div>
+        <p id="table-status" class="note" role="status"></p>
+      </section>
+
+      <section class="view" id="view-phrases" aria-labelledby="tab-phrases" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">SAY IT IN KOREAN</p>
+            <h2>旅行韓語</h2>
+          </div>
+          <span class="section-icon" aria-hidden="true">가</span>
+        </div>
+        <label class="search-label" for="phrase-search">搜尋常用語</label>
+        <input id="phrase-search" class="search-input" type="search" placeholder="輸入中文、韓文或羅馬拼音" autocomplete="off">
+        <div id="phrase-filters" class="filter-list" aria-label="常用語分類"></div>
+        <div id="phrase-list" class="phrase-list"></div>
+        <p id="phrase-status" class="note" role="status"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">韓旅隨手查 · 讓旅程少一點手忙腳亂</footer>
+  </div>
+</body>
+</html>

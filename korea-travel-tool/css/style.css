@@ -1,0 +1,95 @@
+/* 基礎色彩與手機版排版 */
+:root {
+  color-scheme: light;
+  --ink: #173c33;
+  --muted: #64746e;
+  --line: #dde5d9;
+  --surface: #fff;
+  --background: #f7f8f4;
+  --accent: #dff0bd;
+  --accent-dark: #b8db83;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid #8abf56; outline-offset: 3px; }
+[hidden] { display: none !important; }
+
+.app-shell { width: min(100%, 760px); min-height: 100vh; margin: auto; padding: 0 20px; }
+.site-header { display: flex; align-items: center; gap: 12px; padding: 25px 0 18px; }
+.brand-mark { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; border-radius: 14px; background: var(--ink); color: var(--accent); font-size: 28px; font-weight: 700; }
+.eyebrow { margin: 0 0 5px; color: #63846c; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.site-header h1 { margin: 0; font-size: 19px; line-height: 1.2; }
+.intro { padding: 24px 0 22px; }
+.intro h2 { max-width: 420px; margin: 0 0 9px; font-size: clamp(28px, 7vw, 41px); line-height: 1.25; letter-spacing: -.035em; }
+.intro > p:last-child { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* 功能切換與共用區塊 */
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 5px; border: 1px solid var(--line); border-radius: 16px; background: #ecf1e9; }
+.tab { min-height: 44px; padding: 7px 3px; border: 0; border-radius: 11px; background: transparent; color: #5d7065; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.tab.is-active { background: var(--surface); color: var(--ink); box-shadow: 0 2px 8px #173c3314; }
+.view { padding: 30px 0 44px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 17px; }
+.section-heading h2 { margin: 0; font-size: 25px; letter-spacing: -.035em; }
+.section-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; background: var(--accent); font-size: 24px; font-weight: 700; }
+.section-description { margin: -3px 0 18px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.card { border: 1px solid var(--line); border-radius: 21px; background: var(--surface); box-shadow: 0 10px 30px #173c3309; }
+.note { margin: 15px 2px 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.note a { color: var(--ink); text-underline-offset: 2px; }
+
+/* 匯率換算器 */
+.converter { padding: 22px; }
+.field-label, .search-label { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 700; }
+.amount-field { display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 0 18px; border: 1px solid #cbd8c8; border-radius: 14px; }
+.currency-code { color: var(--ink); font-size: 15px; font-weight: 800; }
+.amount-field input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: clamp(28px, 8vw, 36px); font-weight: 750; text-align: right; }
+.amount-field:focus-within { border-color: #83b65b; box-shadow: 0 0 0 3px #83b65b2b; }
+.field-hint { margin: 8px 2px 0; color: var(--muted); font-size: 12px; }
+.swap-button { display: flex; align-items: center; gap: 7px; margin: 17px auto; padding: 9px 15px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 13px; font-weight: 700; }
+.swap-button::first-letter { font-size: 19px; }
+.result-box { padding: 20px; border-radius: 15px; background: var(--accent); }
+.result-label { margin: 0 0 5px; color: #3f6652; font-size: 13px; font-weight: 700; }
+.result-amount { min-height: 42px; margin: 0; overflow-wrap: anywhere; font-size: clamp(29px, 8vw, 39px); font-weight: 800; letter-spacing: -.035em; }
+.rate-card { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 13px; padding: 17px 19px; border: 1px solid var(--line); border-radius: 17px; background: #eef3e9; }
+.rate-label { margin: 0 0 4px; color: var(--muted); font-size: 12px; }
+.rate-summary { margin: 0; font-size: 16px; font-weight: 800; }
+.rate-status { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+.refresh-button { flex: 0 0 auto; padding: 9px 12px; border: 1px solid #b6c8af; border-radius: 10px; background: var(--surface); color: var(--ink); font-size: 13px; font-weight: 700; }
+.refresh-button:disabled { cursor: wait; opacity: .6; }
+
+/* 韓元價格對照 */
+.table-card { overflow: hidden; }
+.table-header, .table-row { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 10px; width: 100%; text-align: left; }
+.table-header { padding: 14px 19px; background: #ecf2e8; color: #5d7065; font-size: 12px; font-weight: 800; }
+.table-header span:last-child, .table-row span:last-child { text-align: right; }
+.table-row { min-height: 59px; padding: 11px 19px; border: 0; border-top: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 16px; font-weight: 750; }
+.table-row:hover { background: #f5faed; }
+.table-row span:last-child { color: #416c4f; }
+.table-empty { margin: 0; padding: 22px 19px; color: var(--muted); font-size: 13px; }
+
+/* 韓語篩選與語句卡片 */
+.search-input { width: 100%; min-height: 50px; padding: 0 15px; border: 1px solid #cbd8c8; border-radius: 12px; background: var(--surface); color: var(--ink); font-size: 15px; }
+.filter-list { display: flex; gap: 8px; overflow-x: auto; padding: 15px 0 17px; scrollbar-width: none; }
+.filter-list::-webkit-scrollbar { display: none; }
+.filter-button { flex: 0 0 auto; min-height: 36px; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); font-size: 13px; font-weight: 700; }
+.filter-button.is-active { border-color: var(--ink); background: var(--ink); color: var(--surface); }
+.phrase-list { display: grid; gap: 11px; }
+.phrase-card { padding: 17px 18px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); }
+.phrase-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.phrase-category { margin: 0 0 7px; color: #63846c; font-size: 11px; font-weight: 800; }
+.phrase-chinese { margin: 0; font-size: 15px; font-weight: 700; }
+.phrase-korean { margin: 10px 0 3px; font-size: 24px; font-weight: 800; line-height: 1.35; }
+.phrase-romanization { margin: 0; color: var(--muted); font-size: 12px; }
+.speak-button { flex: 0 0 auto; min-width: 66px; min-height: 35px; padding: 6px 10px; border: 1px solid #cbd8c8; border-radius: 9px; background: #f5f9ee; color: var(--ink); font-size: 12px; font-weight: 700; }
+.empty-message { padding: 25px 18px; border: 1px dashed var(--line); border-radius: 15px; color: var(--muted); text-align: center; }
+.site-footer { padding: 15px 0 calc(26px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); color: #849188; font-size: 11px; text-align: center; }
+
+@media (min-width: 600px) {
+  .app-shell { padding: 0 32px; }
+  .site-header { padding-top: 34px; }
+  .intro { padding: 38px 0 30px; }
+  .view { padding-top: 36px; }
+}
